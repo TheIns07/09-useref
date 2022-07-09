@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from "react";
 
 function App() {
+  const nombreValue = useRef()
+  const apellidoValue = useRef()
+  const emailValue = useRef()
+
+  const mostrar = e => {
+    e.preventDefafult();
+    console.log(nombreValue.current.value)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Formulario</h1>
+      <form onSubmit={mostrar}>
+        <input type = "text" placeholder="nombre" ref = {nombreValue}/>
+        <input type Value= "text" placeholder="apellidos" ref = {apellidoValue}/>
+        <input type = "email" placeholder="correo" ref = {emailValue}/>
+        <input type="submit" value = "enviar"/>
+      </form>
     </div>
   );
 }
